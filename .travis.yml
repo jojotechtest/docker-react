@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jojotechtest/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run jojotechtest/docker-react npm run test -- --coverage
